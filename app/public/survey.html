@@ -52,16 +52,20 @@
         <h3 class="ui dividing header">About You</h3>
 
         <form action="/api/friends" class="ui form" method="POST">
-            <label class="ui label fluid" for="name">Name</label>
-            <input id="name" name="name" class="ui input fluid" type="text" placehodler="Name...">
+            <div class="field">
+              <label class="ui label fluid" for="name">Name</label>
+              <input id="name" name="name" class="ui input fluid" type="text" placehodler="Name...">
+            </div>
 
             <div class="ui divider"></div>
 
+            <div class="field">
             <label class="ui label fluid" for="pic">Picture Link</label>
             <input id="pic" name="pic" class="ui input fluid" type="text" placehodler="www.myphoto.com">
+            </div>
 
             <div class="ui divider"></div>
-
+<div class="field">
             <label class="ui label fluid" for="q1">Your mind is always buzzing with unexplored ideas and plans.</label>
             <select id="q1" name="q1" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -71,7 +75,10 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+</div>
+
 <div class="ui divider"></div>
+<div class="field">
             <label class="ui label fluid" for="q2">Generally speaking, you rely more on your experience than your imagination.</label>
             <select id="q2" name="q2" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -81,7 +88,10 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+</div>
+
 <div class="ui divider"></div>
+<div class="field">
             <label class="ui label fluid" for="q3">You find it easy to stay relaxed and focused even when there is some pressure.</label>
             <select id="q3" name="q3" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -91,7 +101,10 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+</div>
+
 <div class="ui divider"></div>
+<div class="field">
             <label class="ui label fluid" for="q4">You rarely do something just out of sheer curiosity.</label>
             <select id="q4" name="q4" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -101,7 +114,11 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+            </div>
+
+
 <div class="ui divider"></div>
+<div class="field">
             <label class="ui label fluid" for="q5">People can rarely upset you.</label>
             <select id="q5" name="q5" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -111,7 +128,11 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+            </div>
+
+
 <div class="ui divider"></div>
+<div class="field">
             <label class="ui label fluid" for="q6">It is often difficult for you to relate to other people’s feelings.</label>
             <select id="q6" name="q6" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -121,7 +142,11 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+            </div>
+
+
 <div class="ui divider"></div>
+<div class="field">
             <label class="ui label fluid" for="q7">In a discussion, truth should be more important than people’s sensitivities..</label>
             <select id="q7" name="q7" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -131,7 +156,11 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+            </div>
+
+
 <div class="ui divider"></div>
+            <div class="field">
             <label class="ui label fluid" for="q8">You rarely get carried away by fantasies and ideas.</label>
             <select id="q8" name="q8" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -141,7 +170,11 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+            </div>
+
+
 <div class="ui divider"></div>
+<div class="field">
             <label class="ui label fluid" for="q9">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
             <select id="q9" name="q9" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -151,7 +184,11 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+            </div>
+
+
 <div class="ui divider"></div>
+            <div class='field'>
             <label class="ui label fluid" for="q10">You feel more energetic after spending time with a group of people.</label>
             <select id="q10" name="q10" class="ui dropdown">
                 <option value="">Scale from 1 to 5</option>
@@ -161,7 +198,11 @@
                   <option value="4">4</option>
                    <option value="5">5</option>
             </select>
+            </div>
+
 <div class="ui divider"></div>
+
+            <div class="ui error message"><ul class="list"></ul></div>
             <input type="submit" id="form-submit-btn" class="ui button teal fluid"></input>
 
         </form>
@@ -171,7 +212,30 @@
     </div>
 
     <script>
-        $("#form-submit-btn").on('click', function(){
+
+
+      $('.ui.form')
+      .form({
+        fields: {
+          name     : 'empty',
+          pic     : 'empty',
+          q1: 'empty',
+          q2: 'empty',
+          q3: 'empty',
+          q4: 'empty',
+          q5: 'empty',
+          q6: 'empty',
+          q7: 'empty',
+          q8: 'empty',
+          q9: 'empty',
+          q10: 'empty'
+        }
+      });
+
+
+        $("#form-submit-btn").on('click', function(e){
+
+          e.preventDefault();
 
             $.ajax({
                 method: 'get',
