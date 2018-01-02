@@ -213,6 +213,15 @@
 
     <script>
 
+      var $form = $('.ui.form');
+
+      var allFields = $form.form('get values');
+
+      var allFieldsValues = Object.entries(allFields);
+
+
+
+
 
       $('.ui.form')
       .form({
@@ -235,11 +244,24 @@
 
         $("#form-submit-btn").on('click', function(e){
 
-            $.ajax({
-                method: 'get',
-                url: '/api/friends',
-                success: alertBestMatch,
-            });
+            var formComplete;
+
+            for(i=0; i<allFieldsValues.length; i++){
+              if(allFieldsValues[i][1] === ""){
+                formComplete = false;
+                console.log(formComplete);
+              }
+            };
+
+            if(formComplete){
+
+              $.ajax({
+                  method: 'get',
+                  url: '/api/friends',
+                  success: alertBestMatch,
+              });
+            };
+
         });
 
         function alertBestMatch(data){
