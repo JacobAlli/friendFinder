@@ -24,11 +24,10 @@ app.get('/survey' , function(req, res){
 
 app.post('/api/friends', function(req, res){
     friends.push(req.body);
-    console.log(friends);
 });
 
 app.get('/api/friends', function(req, res){
-    res.json(friends);
+    res.send(friends);
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
