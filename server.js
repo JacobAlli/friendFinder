@@ -24,7 +24,7 @@ app.get('/survey' , function(req, res){
 
 app.post('/api/friends', function(req, res, next){
     friends.push(req.body);
-    setTimeout(function(){res.redirect('/');}, (10*1000));
+    setTimeout(function(){res.redirect('/');}, (6*1000));
 });
 
 app.get('/api/friends', function(req, res){

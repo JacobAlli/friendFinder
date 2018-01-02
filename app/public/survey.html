@@ -15,6 +15,10 @@
             font-size: 26px;
         }
 
+        .hide {
+          display: none;
+        }
+
 
     </style>
 </head>
@@ -34,13 +38,11 @@
     </div>
   </div>
   <div class="actions">
-    <div class="ui black deny button">
-      Nope
-    </div>
-    <div class="ui positive right labeled icon button">
-      OOOOOOOHH LALA!
+    <h3>You will be redirected in 6s</h3>
+    <a href="/"><div class="ui positive right labeled icon button">
+      Back to Home Page
       <i class="checkmark icon"></i>
-    </div>
+    </div></a>
   </div>
 </div>
 
@@ -215,7 +217,6 @@
 
 
 
-
         $("#form-submit-btn").on('click', function(e){
 
             var $form = $('.ui.form');
@@ -283,7 +284,10 @@
             var bestMatchName = null;
             var bestMatchPic;
             if(friends[0] === undefined){
-                alert("Looks like you're the only one here... forever alone! :D");
+                $('div.header.modal-header').html("You're the first submission :(");
+                $('div.desc-header').html(':(:(:(');
+                $('img').addClass('hide');
+                $('.match').modal('show');
             }
             else{
                 for(var index in friends){
@@ -321,6 +325,7 @@
                 $('div.header.modal-header').html(bestMatchName);
                 $('div.desc-header').html('Congrats you matched with '+ bestMatchName);
                 $('img').attr('src', bestMatchPic);
+                $('img').removeClass('hide');
                 $('.match').modal('show');
                 $('input#name').val("");
                 $('input#pic').val("");
