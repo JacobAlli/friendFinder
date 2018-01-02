@@ -244,6 +244,8 @@
 
         $("#form-submit-btn").on('click', function(e){
 
+            e.preventDefault();
+
             var formComplete;
 
             for(i=0; i<allFieldsValues.length; i++){
