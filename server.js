@@ -28,7 +28,7 @@ app.post('/api/friends', function(req, res){
 });
 
 app.get('/api/friends', function(req, res){
-    res.send(friends);
+    res.json(friends);
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
