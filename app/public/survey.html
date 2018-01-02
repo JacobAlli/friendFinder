@@ -259,12 +259,14 @@
 
               $.ajax({
                   method: 'get',
+                  dataType: 'json',
                   url: '/api/friends',
                   success: alertBestMatch,
               });
             };
 
             function alertBestMatch(data){
+              console.log("starting best match function");
             var answers = [];
             for(var i=1; i<11; i++){
                 var questionNumber = JSON.stringify(i);
