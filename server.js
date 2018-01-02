@@ -22,9 +22,9 @@ app.get('/survey' , function(req, res){
     res.sendFile(path.join(__dirname+'/app/public', 'survey.html'));
 });
 
-app.post('/api/friends', function(req, res){
+app.post('/api/friends', function(req, res, next){
     friends.push(req.body);
-    res.end();
+    next();
 });
 
 app.get('/api/friends', function(req, res){
