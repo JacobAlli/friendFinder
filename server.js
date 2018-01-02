@@ -24,6 +24,7 @@ app.get('/survey' , function(req, res){
 
 app.post('/api/friends', function(req, res){
     friends.push(req.body);
+    res.end();
 });
 
 app.get('/api/friends', function(req, res){
